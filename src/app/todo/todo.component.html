@@ -1,0 +1,22 @@
+<div class="input-group">
+<input type="text" class="form-control" placeholder="Add Task" name="Taskname" #TaskItem (keydown.enter)="onAddItemEnter(TaskItem)">
+    <div class="input-group-btn">
+        <button class="btn btn-default" type="submit" (click)="onAddItem(TaskItem)" >
+            <span>Add </span>
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+</div>
+<div class="tasklisting">
+    <ul class="list-group" >
+        <li class="list-group-item" *ngFor="let item of toDoListArray" [class.bg-success-custom]="item.isChecked">
+            <span class="task-btn-hover" [class.text-success]="item.isChecked" (click)="onTaskChecked(item.$key , item.isChecked)">
+                <i class="far " [ngClass]="item.isChecked?'fa-check-circle':'fa-circle'"></i>
+            </span>
+            {{ item.title }}
+            <span class="task-btn-hover pull-right text-danger" (click)=onDeleteTask(item.$key)>
+                <i class="fas fa-trash"></i>
+            </span>
+        </li>
+    </ul>
+</div>

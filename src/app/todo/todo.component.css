@@ -1,0 +1,9 @@
+
+.tasklisting{
+ position: relative;
+ margin: 30px 0;
+}
+
+.bg-success-custom{
+    text-decoration: line-through;
+}
